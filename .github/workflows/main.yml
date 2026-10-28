@@ -1,3 +1,4 @@
+
 name: Build debug APK
 
 on:
@@ -8,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: unzip -q TecladoLeve-fork*.zip
       - uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-      - uses: gradle/actions/setup-gradle@v3
-      - run: chmod +x gradlew
-      - run: ./gradlew assembleDebug
+      - run: chmod +x gradlew && ./gradlew assembleDebug
+        working-directory: HeliBoard-main
       - uses: actions/upload-artifact@v4
         with:
           name: TecladoLeve-debug
-          path: app/build/outputs/apk/debug/*-debug*.apk
+          path: HeliBoard-main/app/build/outputs/apk/debug/*-debug*.apk
