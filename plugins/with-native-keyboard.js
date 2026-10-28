@@ -185,7 +185,7 @@ public class IosKeyKeyboardView extends View {
   private final String[] rows = {"qwertyuiop", "asdfghjkl", "⇧zxcvbnm⌫"};
   private final Map<String, String> corrections = new HashMap<>();
   private final String[] commonWords = {"que", "qual", "quando", "quer", "quero", "quem", "olá", "olhar", "obrigado", "obrigada", "você", "voce", "isso", "está", "esta", "para", "por", "com", "como", "muito", "mais", "agora", "também", "tambem", "teclado", "bonito", "leve", "sim", "não", "nao", "hello", "thanks"};
-  private final Pattern wordPattern = Pattern.compile("([\\p{L}]+)$");
+  private final Pattern wordPattern = Pattern.compile("([\\\\p{L}]+)$");
   private boolean suggestionsEnabled = true;
   private boolean autoCorrectEnabled = true;
   private int heightDp = 284;
